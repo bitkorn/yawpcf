@@ -27,7 +27,7 @@
                 <tbody>
 				<?php foreach ( $this->messs as $mess ): ?>
                     <tr>
-                        <td><?php echo $mess['name'] ?></td>
+                        <td><?php echo htmlspecialchars($mess['name']) ?></td>
                         <td><?php echo htmlspecialchars($mess['email']) ?></td>
                         <td><?php echo htmlspecialchars($mess['subject']) ?></td>
                         <td><?php echo htmlspecialchars($mess['message']) ?></td>
