@@ -46,6 +46,7 @@ function bitkorn_yawpcf_load_scripts_admin(): void {
 	wp_enqueue_style( 'yawpcf_w3' );
 	wp_register_style( 'yawpcf_style_admin', plugins_url( 'yawpcf/css/style-admin.css' ) );
 	wp_enqueue_style( 'yawpcf_style_admin' );
+	wp_enqueue_style( 'dashicons' );
 
 	wp_enqueue_script( 'bitkorn_yawpcf_admin', plugins_url( 'yawpcf/js/yawpcf-admin.js' ), [ 'jquery' ] );
 
