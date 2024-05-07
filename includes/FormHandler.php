@@ -34,7 +34,7 @@ class FormHandler {
 				'subject' => $subject,
 				'message' => $message,
 			] ) == 1 ) {
-			$this->messageHtml .= '<div><p>Thanks for contacting us, expect a response soon.</p></div>';
+			$this->messageHtml .= '<div><p>'.__('Thanks for contacting us, expect a response soon.', BITKORN_YAWPCF_DOMAIN).'</p></div>';
 		}
 	}
 

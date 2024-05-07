@@ -12,19 +12,18 @@ msgstr ""
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: /languages\n"
 
-
-# form field missing
-msgid "Required form field is missing"
-msgstr ""
-
 # Send Mail
-msgid "Send Mail"
-msgstr ""
+msgid "Send Message"
+msgstr "Send Message"
 
 # error message
 msgid "All fields must be filled out"
-msgstr ""
+msgstr "All fields must be filled out"
 
 # error message
 msgid "Email is not valid"
-msgstr ""
+msgstr "Email is not valid"
+
+# Thanks for contacting us
+msgid "Thanks for contacting us, expect a response soon."
+msgstr "Thanks for contacting us, expect a response soon."

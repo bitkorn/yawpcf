@@ -16,7 +16,7 @@
     <textarea rows="10" id="yawpcf-message" name="yawpcf-message" required="required" class="w3-input"
               placeholder="Message (required)"><?php echo( isset( $_POST["yawpcf-message"] ) ? esc_attr( $_POST["yawpcf-message"] ) : '' ) ?></textarea>
     <p>
-        <input type="submit" name="bitkorn-yawpcf-submitted" value="senden" class="w3-button w3-pale-blue">
+        <input type="submit" name="bitkorn-yawpcf-submitted" value="<?= __('Send Message', BITKORN_YAWPCF_DOMAIN) ?>" class="w3-button w3-pale-blue">
     </p>
 </form>
 <?= $this->messageHtml ?>
