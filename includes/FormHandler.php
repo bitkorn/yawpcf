@@ -63,7 +63,7 @@ Message:$message\r\n";
 			$name    = sanitize_text_field( $_POST['yawpcf-name'] );
 			$email   = sanitize_email( $_POST['yawpcf-email'] );
 			$subject = sanitize_text_field( $_POST['yawpcf-subject'] );
-			$message = esc_textarea( $_POST['yawpcf-message'] );
+			$message = sanitize_textarea_field( $_POST['yawpcf-message'] );
 
 			$this->message_validate( $name, $email, $subject, $message );
 			if ( ! $this->errors->has_errors() ) {

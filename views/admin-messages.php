@@ -27,10 +27,10 @@
                 <tbody>
 				<?php foreach ( $this->messs as $mess ): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($mess['name']) ?></td>
-                        <td><?php echo htmlspecialchars($mess['email']) ?></td>
-                        <td><?php echo htmlspecialchars($mess['subject']) ?></td>
-                        <td><?php echo htmlspecialchars($mess['message']) ?></td>
+                        <td><?php echo html_entity_decode($mess['name']) ?></td>
+                        <td><?php echo html_entity_decode($mess['email']) ?></td>
+                        <td><?php echo html_entity_decode($mess['subject']) ?></td>
+                        <td><?php echo html_entity_decode($mess['message']) ?></td>
                         <td><?php echo $mess['date_create'] ?></td>
                         <td>
                             <button type="button" id="bitkorn_yawpcf_message_delete"
