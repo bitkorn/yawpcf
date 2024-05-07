@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Yet Another WordPress Contact Form\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-05-04T14:00:47+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: /languages\n"
+
+
+# form field missing
+msgid "Required form field is missing"
+msgstr ""
+
+# Send Mail
+msgid "Send Mail"
+msgstr ""
+
+# error message
+msgid "All fields must be filled out"
+msgstr ""
+
+# error message
+msgid "Email is not valid"
+msgstr ""
