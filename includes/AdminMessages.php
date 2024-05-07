@@ -9,7 +9,7 @@ class AdminMessages {
 
 	public function __construct() {
 		add_action( 'admin_menu', [ $this, 'create_menu' ] );
-		add_action( 'wp_ajax_bitkorn_yawpcf_delete_message_action', [$this, 'bitkorn_yawpcf_delete_message'] );
+		add_action( 'wp_ajax_bitkorn_yawpcf_delete_message_action', [ $this, 'bitkorn_yawpcf_delete_message' ] );
 	}
 
 	public function create_menu(): void {
