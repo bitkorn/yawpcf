@@ -33,10 +33,9 @@ class AdminMessages {
 		echo $vr->render( [ 'messs' => $messs ] );
 	}
 
-	public function delete_message(): bool {
+	public static function delete_message(int $id): bool {
 		global $wpdb;
-		$id  = ! empty( $_GET['id'] ) ? intval( $_GET['id'] ) : 0;
-		$res = $wpdb->delete( BITKORN_YAWPCF_TABLE, [ 'id' => $id ] );
+		$res = $wpdb->delete( $wpdb->prefix . BITKORN_YAWPCF_TABLE, [ 'id' => $id ] );
 
 		return $res !== false && $res > 0;
 	}

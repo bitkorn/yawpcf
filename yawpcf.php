@@ -46,7 +46,33 @@ function bitkorn_yawpcf_load_scripts_admin(): void {
 	wp_enqueue_style( 'yawpcf_w3' );
 	wp_register_style( 'yawpcf_style_admin', plugins_url( 'yawpcf/css/style-admin.css' ) );
 	wp_enqueue_style( 'yawpcf_style_admin' );
-	wp_enqueue_script( 'bitkorn-yawpcf-admin', plugins_url( 'yawpcf/js/yawpcf-admin.js' ), [ 'jquery' ] );
+
+	wp_enqueue_script( 'bitkorn_yawpcf_admin', plugins_url( 'yawpcf/js/yawpcf-admin.js' ), [ 'jquery' ] );
+
+	$ajax_url = add_query_arg( [ 'action' => 'bitkorn_yawpcf_delete_message_action' ], admin_url( 'admin-ajax.php' ) );
+	$ajax_url = wp_nonce_url( $ajax_url, 'bitkorn_yawpcf_delete_message_action' );
+	wp_add_inline_script(
+		'bitkorn_yawpcf_admin',
+		sprintf(
+			'var BITKORN_YAWPCF_AJAXURL = "%s";',
+			esc_attr( esc_url_raw( htmlspecialchars_decode( $ajax_url ) ) )
+		)
+	);
+}
+
+add_action( 'wp_ajax_bitkorn_yawpcf_delete_message_action', 'bitkorn_yawpcf_delete_message' );
+function bitkorn_yawpcf_delete_message(): void {
+	if ( check_ajax_referer( 'bitkorn_yawpcf_delete_message_action', true, false ) === false ) {
+		wp_send_json_error( 'It seems that you are not allowed to do this.', 401 );
+	}
+	if ( empty( $id = intval( $_REQUEST['id'] ) ) ) {
+		wp_send_json_error( 0, 403, JSON_FORCE_OBJECT );
+	}
+	if ( AdminMessages::delete_message( $id ) ) {
+		wp_send_json_success( 1, 200, JSON_FORCE_OBJECT );
+	} else {
+		wp_send_json_error( 0, 500, JSON_FORCE_OBJECT );
+	}
 }
 
 if ( is_admin() ) {
