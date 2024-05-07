@@ -34,7 +34,8 @@
                         <td><?php echo $mess['date_create'] ?></td>
                         <td>
                             <button type="button" id="bitkorn_yawpcf_message_delete"
-                                    class="w3-button w3-red bitkorn-yawpcf-message-delete" data-id="<?= $mess['id'] ?>">X
+                                    class="w3-button w3-red w3-tiny bitkorn-yawpcf-message-delete" data-id="<?= $mess['id'] ?>">
+                                <span class="dashicons dashicons-trash"></span>
                             </button>
                         </td>
                     </tr>
