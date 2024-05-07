@@ -60,20 +60,6 @@ function bitkorn_yawpcf_load_scripts_admin(): void {
 	);
 }
 
-add_action( 'wp_ajax_bitkorn_yawpcf_delete_message_action', 'bitkorn_yawpcf_delete_message' );
-function bitkorn_yawpcf_delete_message(): void {
-	if ( check_ajax_referer( 'bitkorn_yawpcf_delete_message_action', true, false ) === false ) {
-		wp_send_json_error( 'It seems that you are not allowed to do this.', 401 );
-	}
-	if ( empty( $id = intval( $_REQUEST['id'] ) ) ) {
-		wp_send_json_error( 0, 403, JSON_FORCE_OBJECT );
-	}
-	if ( AdminMessages::delete_message( $id ) ) {
-		wp_send_json_success( 1, 200, JSON_FORCE_OBJECT );
-	} else {
-		wp_send_json_error( 0, 500, JSON_FORCE_OBJECT );
-	}
-}
 
 if ( is_admin() ) {
 	require_once __DIR__ . '/includes/admin.php';

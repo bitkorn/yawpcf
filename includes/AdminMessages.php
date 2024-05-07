@@ -9,6 +9,7 @@ class AdminMessages {
 
 	public function __construct() {
 		add_action( 'admin_menu', [ $this, 'create_menu' ] );
+		add_action( 'wp_ajax_bitkorn_yawpcf_delete_message_action', [$this, 'bitkorn_yawpcf_delete_message'] );
 	}
 
 	public function create_menu(): void {
@@ -23,6 +24,20 @@ class AdminMessages {
 		);
 	}
 
+	public function bitkorn_yawpcf_delete_message(): void {
+		if ( check_ajax_referer( 'bitkorn_yawpcf_delete_message_action', true, false ) === false ) {
+			wp_send_json_error( 'It seems that you are not allowed to do this.', 401 );
+		}
+		if ( empty( $id = intval( $_REQUEST['id'] ) ) ) {
+			wp_send_json_error( 0, 403, JSON_FORCE_OBJECT );
+		}
+		if ( AdminMessages::delete_message( $id ) ) {
+			wp_send_json_success( 1, 200, JSON_FORCE_OBJECT );
+		} else {
+			wp_send_json_error( 0, 500, JSON_FORCE_OBJECT );
+		}
+	}
+
 	public function render_messages(): void {
 		global $wpdb;
 		$orderDirec = isset( $_GET['order_direc'] ) && in_array( $_GET['order_direc'], $this->orderDirecs ) ? $_GET['order_direc'] : 'DESC';
@@ -33,7 +48,7 @@ class AdminMessages {
 		echo $vr->render( [ 'messs' => $messs ] );
 	}
 
-	public static function delete_message(int $id): bool {
+	public static function delete_message( int $id ): bool {
 		global $wpdb;
 		$res = $wpdb->delete( $wpdb->prefix . BITKORN_YAWPCF_TABLE, [ 'id' => $id ] );
 
